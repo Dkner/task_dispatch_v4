@@ -22,11 +22,11 @@ class MongoConnection(metaclass=Cached):
 
 class ConnectionFactory(object):
     @staticmethod
-    def get_redis_connection(host='127.0.0.1', port='6379', db=0, password=''):
+    def get_redis_connection(host='127.0.0.1', port=6379, db=0, password=''):
         redis_cached = RedisConnection(host, port, db, password)
         return redis_cached
 
     @staticmethod
-    def get_mongo_connection(host='127.0.0.1', port='27017', db='', user='', password=''):
+    def get_mongo_connection(host='127.0.0.1', port=27017, db='', user='', password=''):
         mongo_cached = MongoConnection(host, port, db, user, password)
         return mongo_cached
