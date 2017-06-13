@@ -1,0 +1,57 @@
+CONF_MYSQL = {
+    'DEV':{
+        'host':'192.168.0.26',
+        'port':3306,
+        'user':'script',
+        'password':'111111',
+        'charset':'utf8'
+    },
+    'TEST':{
+        'host':'10.0.3.201',
+        'port':3306,
+        'user':'camcard',
+        'password':'fFDF5435hew909MN',
+        'charset':'utf8'
+    },
+    'PRE':{
+        'host':'10.0.4.111',
+        'port':3306,
+        'user':'yunying_new',
+        'password':'5v3v8p7eJNzUTidW',
+        'charset':'utf8'
+    },
+    'ONLINE':{
+        'host':'10.0.4.111',
+        'port':3306,
+        'user':'yunying_new',
+        'password':'5v3v8p7eJNzUTidW',
+        'charset':'utf8'
+    }
+}
+
+CONF_REDIS = {
+    'DEV':{
+        'host':'192.168.8.30',
+        'port':6379,
+        'db':0,
+        'password':'111111'
+    },
+    'TEST':{
+        'host':'10.0.3.223',
+        'port':6379,
+        'db':0,
+        'password':''
+    },
+    'PRE':{
+        'host':'10.0.6.125',
+        'port':6379,
+        'db':0,
+        'password':''
+    },
+    'ONLINE':{
+        'host':'10.0.6.125',
+        'port':6379,
+        'db':0,
+        'password':''
+    }
+}
