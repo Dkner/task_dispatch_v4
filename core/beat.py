@@ -28,6 +28,7 @@ class Beat(object):
         '''
         tasks = TaskModel.query_task_to_trigger()
         TaskModel.execute('update task set exec_status = 1 where trigger_time<{} and exec_status = 0'.format(int(time.time())))
+        logger.info('fetch job...{}'.format(str(tasks)))
         return tasks
 
     def update_trigger(self, job):
@@ -52,7 +53,7 @@ class Beat(object):
         '''
         redis = ConnectionFactory.get_redis_connection()
         for task in tasks:
-            redis.connection.lpush('test_task_list', json.dumps(task))
+            redis.connection.lpush('test_task_list', json.dumps(task.__dict__))
 
     def async_result(self):
         '''

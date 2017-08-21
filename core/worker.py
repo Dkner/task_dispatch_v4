@@ -1,7 +1,6 @@
 import json
-import subprocess
+import requests
 from core.connection_factory import ConnectionFactory
-from models.task import TaskModel
 
 
 class Worker(object):
@@ -9,8 +8,4 @@ class Worker(object):
         redis = ConnectionFactory.get_redis_connection()
         while True:
             task = redis.connection.brpop('test_task_list')
-            task = json.loads(task)
-            self.execute_script(task)
-
-    def execute_script(self, task):
-        subprocess.Popen(task.script)
+            requests.post('http://127.0.0.1/run_task', json=task)
