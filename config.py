@@ -1,9 +1,9 @@
 CONF_MYSQL = {
     'DEV':{
-        'host':'192.168.0.26',
+        'host':'localhost',
         'port':3306,
-        'user':'script',
-        'password':'111111',
+        'user':'root',
+        'password':'admin',
         'charset':'utf8'
     },
     'TEST':{
