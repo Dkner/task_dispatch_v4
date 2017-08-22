@@ -60,6 +60,7 @@ class TaskModel(DeclarativeBase):
         Session = sessionmaker(bind=engine)
         session = Session()
         now = int(time.time())
-        session.query(cls).\
+        rows = session.query(cls).\
             filter(cls.trigger_time < now,
-                   cls.exec_status == 0)
+                   cls.exec_status == 0).all()
+        return rows

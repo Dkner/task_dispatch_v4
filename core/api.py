@@ -1,7 +1,5 @@
-import json
 import subprocess
-from core.connection_factory import ConnectionFactory
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
@@ -14,9 +12,13 @@ def hello_world():
 @app.route('/run_task', methods=['POST'])
 def run_task():
     task = request.get_json()
+    print('run task[{}]'.format(task.get('id')))
     ret_code = subprocess.call(task.get('script'))
-    redis = ConnectionFactory.get_redis_connection()
-    redis.connection.lpush(json.dumps(task))
+    return jsonify({
+        'code': 200,
+        'msg': ret_code,
+        'data': ''
+    })
 
 
 if __name__ == '__main__':
