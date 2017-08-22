@@ -9,6 +9,12 @@ def hello_world():
     return 'Hello World!'
 
 
+@app.route('/test_post', methods=['POST'])
+def test_post():
+    print(request.data, request.method, request.path, request.args, request.form, request.json, request.files, request.cookies)
+    return 'test'
+
+
 @app.route('/run_task', methods=['POST'])
 def run_task():
     task = request.get_json()
@@ -24,4 +30,4 @@ def run_task():
 if __name__ == '__main__':
     from werkzeug.contrib.fixers import ProxyFix
     app.wsgi_app = ProxyFix(app.wsgi_app)
-    app.run()
+    app.run(debug=True)
